@@ -25,6 +25,10 @@ class PersonaController extends Controller
     {
         //
     }
+     public function saludo()
+    {
+        echo "hola puto";
+    }
 
     /**
      * Store a newly created resource in storage.
