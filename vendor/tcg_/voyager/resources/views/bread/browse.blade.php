@@ -20,9 +20,7 @@
 @stop
 
 @section('content')
-<script src="/bower_components/angular/angular.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <div class="page-content browse container-fluid" ng-app='prueba' ng-controller='prueba'>
+    <div class="page-content browse container-fluid">
         @include('voyager::alerts')
         <div class="row">
             <div class="col-md-12">
@@ -51,7 +49,6 @@
                                 </div>
                             </form>
                         @endif
-                        @{{hola}}
                         <div class="table-responsive">
                             <table id="dataTable" class="table table-hover">
                                 <thead>
@@ -248,10 +245,8 @@
 @section('javascript')
     <!-- DataTables -->
     @if(!$dataType->server_side && config('dashboard.data_tables.responsive'))
-        <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>        
+        <script src="{{ voyager_asset('lib/js/dataTables.responsive.min.js') }}"></script>
     @endif
-    <!--<script src="{{ voyager_asset('/angular/angular.min.js') }}"></script>-->
-    
     <script>
         $(document).ready(function () {
             @if (!$dataType->server_side)
@@ -289,14 +284,5 @@
 
             $('#delete_modal').modal('show');
         });
-    </script>
-
-    <script type="text/javascript">
-        angular.module('prueba', ['ui.bootstrap']);
-        angular.module('prueba').controller('prueba', ['$scope', '$http', '$modal', '$sce', prueba]);
-
-        function prueba($scope, $http, $modal, $sce) {
-            $scope.hola = 'asd';
-        }
     </script>
 @stop
