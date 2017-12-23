@@ -14,6 +14,19 @@
 @stop
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ <script type="text/javascript">
+        angular.module('HelloWorldApp', [])
+        .controller('HelloWorldController', function($scope) {
+            $scope.greeting = "Hello World";
+    });
+    </script>
+
+    <div class="row" ng-app="HelloWorldApp" ng-controller="HelloWorldController">
+        <h1>
+            @{{greeting}}
+        </h1>
+    </div>
     <div class="page-content container-fluid">
         @if (request()->has('message'))
             <div class="row">
@@ -153,4 +166,5 @@
                     : action + '/' + id;
         }
     </script>
+   
 @stop
