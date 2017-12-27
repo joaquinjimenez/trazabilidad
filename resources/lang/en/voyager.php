@@ -13,7 +13,7 @@ return [
         'actions'                => 'Actions',
         'add'                    => 'Add',
         'add_folder'             => 'Add Folder',
-        'add_new'                => 'Add New',
+        'add_new'                => 'Agregar Nuevo',
         'all_done'               => 'All done',
         'are_you_sure'           => 'Are you sure',
         'are_you_sure_delete'    => 'Are you sure you want to delete',

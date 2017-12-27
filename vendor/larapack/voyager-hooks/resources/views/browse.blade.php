@@ -14,11 +14,12 @@
 @stop
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
+<script src="bower_components/angular"></script>
  <script type="text/javascript">
         angular.module('HelloWorldApp', [])
         .controller('HelloWorldController', function($scope) {
-            $scope.greeting = "Hello World";
+            $scope.greeting = "fsdfsfsd World";
     });
     </script>
 
