@@ -421,8 +421,18 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
     );
 
     public static $classMap = array (
+        'App\\Administrador' => __DIR__ . '/../..' . '/app/Administrador.php',
+        'App\\Administrativo' => __DIR__ . '/../..' . '/app/Administrativo.php',
+        'App\\Bascula' => __DIR__ . '/../..' . '/app/Bascula.php',
+        'App\\Batea' => __DIR__ . '/../..' . '/app/Batea.php',
+        'App\\Chofer' => __DIR__ . '/../..' . '/app/Chofer.php',
+        'App\\Clima' => __DIR__ . '/../..' . '/app/Clima.php',
+        'App\\Compost' => __DIR__ . '/../..' . '/app/Compost.php',
+        'App\\Conexion' => __DIR__ . '/../..' . '/app/Conexion.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Encargadovehiculo' => __DIR__ . '/../..' . '/app/Encargadovehiculo.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Generador' => __DIR__ . '/../..' . '/app/Generador.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -441,6 +451,7 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Transportistum' => __DIR__ . '/../..' . '/app/Transportistum.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'Arrilot\\Widgets\\AbstractWidget' => __DIR__ . '/..' . '/arrilot/laravel-widgets/src/AbstractWidget.php',

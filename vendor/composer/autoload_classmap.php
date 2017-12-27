@@ -6,8 +6,18 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Administrador' => $baseDir . '/app/Administrador.php',
+    'App\\Administrativo' => $baseDir . '/app/Administrativo.php',
+    'App\\Bascula' => $baseDir . '/app/Bascula.php',
+    'App\\Batea' => $baseDir . '/app/Batea.php',
+    'App\\Chofer' => $baseDir . '/app/Chofer.php',
+    'App\\Clima' => $baseDir . '/app/Clima.php',
+    'App\\Compost' => $baseDir . '/app/Compost.php',
+    'App\\Conexion' => $baseDir . '/app/Conexion.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Encargadovehiculo' => $baseDir . '/app/Encargadovehiculo.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Generador' => $baseDir . '/app/Generador.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -26,6 +36,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Transportistum' => $baseDir . '/app/Transportistum.php',
     'App\\User' => $baseDir . '/app/User.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'Arrilot\\Widgets\\AbstractWidget' => $vendorDir . '/arrilot/laravel-widgets/src/AbstractWidget.php',
