@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('/personas/saludo', 'PersonaController@saludo');
 
+Route::get('/calendario', 'Calendario@index');
+
+
 
 
 
