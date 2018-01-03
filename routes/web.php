@@ -20,7 +20,7 @@ Route::get('/personas/saludo', 'PersonaController@saludo');
 Route::get('/calendario', 'Calendario@index');
 
 
-
+Route::get('/gmaps', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
 
 Route::group(['prefix' => 'admin'], function () {
