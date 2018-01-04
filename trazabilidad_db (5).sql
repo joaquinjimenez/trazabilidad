@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-12-2017 a las 01:28:46
+-- Tiempo de generación: 04-01-2018 a las 22:09:16
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -115,6 +115,13 @@ CREATE TABLE `bateas` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `bateas`
+--
+
+INSERT INTO `bateas` (`id`, `id_transportista`, `expediente_batea`, `patente`, `codigo_batea`, `tara_batea`, `capacidad`, `seguro`, `habilitacion`, `obvervaciones`, `id_usuario`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, '123123', '123eede', '1231231', 332, '23', 'si', 1, 'sddfdfsdfs', 1, '2017-12-28 00:09:09', '2017-12-28 00:09:09', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -164,6 +171,25 @@ INSERT INTO `chofers` (`id`, `id_transportista`, `dni`, `nombre`, `observacion`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `climas`
+--
+
+CREATE TABLE `climas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `valor_clima` int(11) NOT NULL,
+  `temperatura` double DEFAULT NULL,
+  `viento` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `humedad` double DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `compost`
 --
 
@@ -177,6 +203,35 @@ CREATE TABLE `compost` (
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `telefono_trabajo` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `telefono_particular` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `conexions`
+--
+
+CREATE TABLE `conexions` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cierre_sesion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `accept` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accept_language` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accept_encoding` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_agent` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `host` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `connection` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `observacion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `plataform` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `referrer` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `accept_chat_set` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `command_line` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ajax` tinyint(4) DEFAULT NULL,
+  `agent_m` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -390,8 +445,90 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (191, 20, 'id_usuario', 'number', 'Id Usuario', 0, 1, 1, 1, 1, 1, NULL, 11),
 (192, 20, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 12),
 (193, 20, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 13),
-(194, 20, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, NULL, 14),
-(195, 20, 'batea_hasone_transportistum_relationship', 'relationship', 'transportista', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Batea\",\"table\":\"transportista\",\"type\":\"hasOne\",\"column\":\"id\",\"key\":\"id\",\"label\":\"razon_social\",\"pivot_table\":\"administradors\",\"pivot\":\"0\"}', 15);
+(194, 20, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, NULL, 14),
+(195, 20, 'batea_hasone_transportistum_relationship', 'relationship', 'transportista', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Transportistum\",\"table\":\"transportista\",\"type\":\"belongsTo\",\"column\":\"id_transportista\",\"key\":\"id\",\"label\":\"razon_social\",\"pivot_table\":\"administradors\",\"pivot\":\"0\"}', 15),
+(196, 22, 'id', 'checkbox', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(197, 22, 'valor_clima', 'number', 'Valor Clima', 1, 1, 1, 1, 1, 1, NULL, 3),
+(198, 22, 'temperatura', 'number', 'Temperatura', 0, 1, 1, 1, 1, 1, NULL, 4),
+(199, 22, 'viento', 'text', 'Viento', 0, 1, 1, 1, 1, 1, NULL, 5),
+(200, 22, 'humedad', 'number', 'Humedad', 0, 1, 1, 1, 1, 1, NULL, 6),
+(201, 22, 'id_usuari', 'text', 'Id Usuari', 1, 1, 1, 1, 1, 1, NULL, 7),
+(202, 22, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 8),
+(203, 22, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 9),
+(204, 22, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, NULL, 10),
+(205, 22, 'nombre', 'text', 'Nombre', 1, 1, 1, 1, 1, 1, NULL, 2),
+(206, 23, 'id', 'checkbox', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(207, 23, 'id_usuario', 'number', 'Id Usuario', 1, 1, 1, 1, 1, 1, NULL, 2),
+(208, 23, 'ip', 'text', 'Ip', 0, 1, 1, 1, 1, 1, NULL, 3),
+(209, 23, 'cierre_sesion', 'timestamp', 'Cierre Sesion', 1, 1, 1, 1, 1, 1, NULL, 4),
+(210, 23, 'accept', 'text', 'Accept', 0, 1, 1, 1, 1, 1, NULL, 5),
+(211, 23, 'accept_language', 'text', 'Accept Language', 0, 1, 1, 1, 1, 1, NULL, 6),
+(212, 23, 'accept_encoding', 'text', 'Accept Encoding', 0, 1, 1, 1, 1, 1, NULL, 7),
+(213, 23, 'user_agent', 'text', 'User Agent', 0, 1, 1, 1, 1, 1, NULL, 8),
+(214, 23, 'host', 'text', 'Host', 0, 1, 1, 1, 1, 1, NULL, 9),
+(215, 23, 'connection', 'text', 'Connection', 0, 1, 1, 1, 1, 1, NULL, 10),
+(216, 23, 'observacion', 'text', 'Observacion', 0, 1, 1, 1, 1, 1, NULL, 11),
+(217, 23, 'plataform', 'text', 'Plataform', 0, 1, 1, 1, 1, 1, NULL, 12),
+(218, 23, 'referrer', 'text', 'Referrer', 0, 1, 1, 1, 1, 1, NULL, 13),
+(219, 23, 'accept_chat_set', 'text', 'Accept Chat Set', 0, 1, 1, 1, 1, 1, NULL, 14),
+(220, 23, 'command_line', 'text', 'Command Line', 0, 1, 1, 1, 1, 1, NULL, 15),
+(221, 23, 'ajax', 'checkbox', 'Ajax', 0, 1, 1, 1, 1, 1, NULL, 16),
+(222, 23, 'agent_m', 'text', 'Agent M', 0, 1, 1, 1, 1, 1, NULL, 17),
+(223, 23, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 18),
+(224, 23, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 19),
+(225, 23, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, NULL, 20),
+(226, 25, 'id', 'checkbox', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(227, 25, 'IdTrans', 'checkbox', 'IdTrans', 1, 1, 1, 1, 1, 1, NULL, 2),
+(228, 25, 'Nombre', 'text', 'Nombre', 1, 1, 1, 1, 1, 1, NULL, 3),
+(229, 25, 'cuit', 'number', 'Cuit', 1, 1, 1, 1, 1, 1, NULL, 4),
+(230, 25, 'celular', 'text', 'Celular', 0, 1, 1, 1, 1, 1, NULL, 5),
+(231, 25, 'Email', 'text', 'Email', 0, 1, 1, 1, 1, 1, NULL, 6),
+(232, 25, 'Observacion', 'text_area', 'Observacion', 0, 1, 1, 1, 1, 1, NULL, 7),
+(233, 25, 'Deuda', 'number', 'Deuda', 0, 1, 1, 1, 1, 1, NULL, 8),
+(234, 25, 'Infraccion', 'number', 'Infraccion', 0, 1, 1, 1, 1, 1, NULL, 9),
+(235, 25, 'Id_Usuario', 'number', 'Id Usuario', 1, 0, 0, 0, 0, 0, NULL, 10),
+(236, 25, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 11),
+(237, 25, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 12),
+(238, 25, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, NULL, 13),
+(239, 25, 'encargadovehiculo_belongsto_transportistum_relationship', 'relationship', 'transportista', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Transportistum\",\"table\":\"transportista\",\"type\":\"belongsTo\",\"column\":\"IdTrans\",\"key\":\"id\",\"label\":\"razon_social\",\"pivot_table\":\"administradors\",\"pivot\":\"0\"}', 14),
+(240, 26, 'id', 'checkbox', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(241, 26, 'id_generador', 'checkbox', 'Id Generador', 1, 1, 1, 1, 1, 1, NULL, 2),
+(242, 26, 'id_transportista', 'checkbox', 'Id Transportista', 1, 1, 1, 1, 1, 1, NULL, 3),
+(243, 26, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 4),
+(244, 26, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 5),
+(245, 26, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, NULL, 6),
+(246, 26, 'generadortransportistum_belongstomany_transportistum_relationship', 'relationship', 'transportista', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Transportistum\",\"table\":\"transportista\",\"type\":\"belongsTo\",\"column\":\"id_transportista\",\"key\":\"id\",\"label\":\"razon_social\",\"pivot_table\":\"generadortransportista\",\"pivot\":\"0\"}', 7),
+(247, 26, 'generadortransportistum_belongsto_generador_relationship', 'relationship', 'generadors', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Generador\",\"table\":\"generadors\",\"type\":\"belongsTo\",\"column\":\"id_generador\",\"key\":\"id\",\"label\":\"razon_social\",\"pivot_table\":\"administradors\",\"pivot\":\"0\"}', 8),
+(248, 27, 'id', 'checkbox', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(249, 27, 'id_orden', 'checkbox', 'Id Orden', 1, 1, 1, 1, 1, 1, NULL, 2),
+(250, 27, 'inicio', 'checkbox', 'Inicio', 0, 1, 1, 1, 1, 1, NULL, 3),
+(251, 27, 'fin', 'checkbox', 'Fin', 0, 1, 1, 1, 1, 1, NULL, 4),
+(252, 27, 'estado', 'text', 'Estado', 0, 1, 1, 1, 1, 1, NULL, 5),
+(253, 27, 'lugar', 'rich_text_box', 'Lugar', 0, 1, 1, 1, 1, 1, NULL, 6),
+(254, 27, 'salida', 'checkbox', 'Salida', 0, 1, 1, 1, 1, 1, NULL, 7),
+(255, 27, 'llegada', 'checkbox', 'Llegada', 0, 1, 1, 1, 1, 1, NULL, 8),
+(256, 27, 'recorrido', 'checkbox', 'Recorrido', 0, 1, 1, 1, 1, 1, NULL, 9),
+(257, 27, 'destino', 'checkbox', 'Destino', 0, 1, 1, 1, 1, 1, NULL, 10),
+(258, 27, 'icono', 'checkbox', 'Icono', 0, 1, 1, 1, 1, 1, NULL, 11),
+(259, 27, 'observaciones', 'markdown_editor', 'Observaciones', 0, 1, 1, 1, 1, 1, NULL, 12),
+(260, 27, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 13),
+(261, 27, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 14),
+(262, 27, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, NULL, 15),
+(263, 28, 'id', 'checkbox', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(264, 28, 'id_orden', 'checkbox', 'Id Orden', 1, 1, 1, 1, 1, 1, NULL, 2),
+(265, 28, 'inicio', 'checkbox', 'Inicio', 0, 1, 1, 1, 1, 1, NULL, 3),
+(266, 28, 'fin', 'checkbox', 'Fin', 0, 1, 1, 1, 1, 1, NULL, 4),
+(267, 28, 'estado', 'checkbox', 'Estado', 0, 1, 1, 1, 1, 1, NULL, 5),
+(268, 28, 'lugar', 'checkbox', 'Lugar', 0, 1, 1, 1, 1, 1, NULL, 6),
+(269, 28, 'salida', 'checkbox', 'Salida', 0, 1, 1, 1, 1, 1, NULL, 7),
+(270, 28, 'llegada', 'checkbox', 'Llegada', 0, 1, 1, 1, 1, 1, NULL, 8),
+(271, 28, 'recorrido', 'checkbox', 'Recorrido', 0, 1, 1, 1, 1, 1, NULL, 9),
+(272, 28, 'destino', 'checkbox', 'Destino', 0, 1, 1, 1, 1, 1, NULL, 10),
+(273, 28, 'icono', 'checkbox', 'Icono', 0, 1, 1, 1, 1, 1, NULL, 11),
+(274, 28, 'observaciones', 'checkbox', 'Observaciones', 0, 1, 1, 1, 1, 1, NULL, 12),
+(275, 28, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 13),
+(276, 28, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 14),
+(277, 28, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, NULL, 15);
 
 -- --------------------------------------------------------
 
@@ -436,7 +573,56 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (17, 'administrador', 'administrador', 'Administrador', 'Administradors', 'voyager-trees', 'App\\Administrador', NULL, NULL, NULL, 1, 1, '2017-12-23 01:44:41', '2017-12-23 01:44:41'),
 (18, 'bascula', 'bascula', 'Bascula', 'Basculas', 'voyager-campfire', 'App\\Bascula', NULL, NULL, NULL, 1, 1, '2017-12-23 02:03:39', '2017-12-23 02:03:39'),
 (19, 'batea', 'batea', 'Batea', 'Bateas', 'voyager-credit-card', 'App\\Batea', NULL, NULL, NULL, 1, 1, '2017-12-23 02:26:25', '2017-12-23 02:26:25'),
-(20, 'bateas', 'bateas', 'Batea', 'Bateas', 'voyager-gift', 'App\\Batea', NULL, NULL, NULL, 1, 1, '2017-12-23 02:27:26', '2017-12-23 02:36:20');
+(20, 'bateas', 'bateas', 'Batea', 'Bateas', 'voyager-gift', 'App\\Batea', NULL, NULL, NULL, 1, 1, '2017-12-23 02:27:26', '2017-12-23 02:36:20'),
+(22, 'clima', 'clima', 'Clima', 'Climas', 'voyager-lighthouse', 'App\\Clima', NULL, NULL, NULL, 1, 1, '2017-12-28 01:42:05', '2017-12-28 01:42:05'),
+(23, 'conexion', 'conexion', 'Conexion', 'Conexion', 'voyager-watch', 'App\\Conexion', NULL, NULL, NULL, 1, 1, '2017-12-28 01:57:54', '2017-12-28 02:00:08'),
+(25, 'encargadovehiculo', 'encargadovehiculo', 'Encargadovehiculo', 'Encargadovehiculos', NULL, 'App\\Encargadovehiculo', NULL, NULL, NULL, 1, 0, '2017-12-28 02:07:49', '2017-12-28 02:07:49'),
+(26, 'generadortransportista', 'generadortransportista', 'Generadortransportistum', 'Generadortransportista', 'voyager-double-up', 'App\\Generadortransportistum', NULL, NULL, NULL, 1, 1, '2017-12-28 02:18:25', '2017-12-28 02:42:54'),
+(27, 'viaje', 'viaje', 'Viaje', 'Viajes', NULL, 'App\\Viaje', NULL, NULL, NULL, 1, 1, '2017-12-28 02:33:44', '2017-12-28 02:33:44'),
+(28, 'viajes', 'viajes', 'Viaje', 'Viajes', 'voyager-dot-2', 'App\\Viaje', NULL, NULL, NULL, 1, 0, '2017-12-28 02:40:38', '2017-12-28 02:40:38');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `encargadovehiculos`
+--
+
+CREATE TABLE `encargadovehiculos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `IdTrans` int(11) NOT NULL,
+  `Nombre` varbinary(100) NOT NULL,
+  `cuit` bigint(20) NOT NULL,
+  `celular` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Observacion` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Deuda` double DEFAULT NULL,
+  `Infraccion` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Id_Usuario` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `event_models`
+--
+
+CREATE TABLE `event_models` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `all_day` binary(1) NOT NULL,
+  `start` date NOT NULL,
+  `end` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `event_models`
+--
+
+INSERT INTO `event_models` (`id`, `title`, `all_day`, `start`, `end`) VALUES
+(1, 'Rascarmesasadsada', 0x01, '2018-01-02', '2018-01-27');
 
 -- --------------------------------------------------------
 
@@ -466,6 +652,50 @@ CREATE TABLE `generadors` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `generadortransportista`
+--
+
+CREATE TABLE `generadortransportista` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_generador` int(11) NOT NULL,
+  `id_transportista` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `markers`
+--
+
+CREATE TABLE `markers` (
+  `id` int(11) NOT NULL,
+  `name` varchar(60) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `address` varchar(80) COLLATE utf8mb4_spanish2_ci NOT NULL,
+  `lat` float(10,6) NOT NULL,
+  `lng` float(10,6) NOT NULL,
+  `type` varchar(30) COLLATE utf8mb4_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `markers`
+--
+
+INSERT INTO `markers` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
+(1, 'Love.Fish', '580 Darling Street, Rozelle, NSW', -33.861034, 151.171936, 'restaurant'),
+(2, 'Young Henrys', '76 Wilford Street, Newtown, NSW', -33.898113, 151.174469, 'bar'),
+(3, 'Hunter Gatherer', 'Greenwood Plaza, 36 Blue St, North Sydney NSW', -33.840282, 151.207474, 'bar'),
+(4, 'The Potting Shed', '7A, 2 Huntley Street, Alexandria, NSW', -33.910751, 151.194168, 'bar'),
+(5, 'Nomad', '16 Foster Street, Surry Hills, NSW', -33.879917, 151.210449, 'bar'),
+(6, 'Three Blue Ducks', '43 Macpherson Street, Bronte, NSW', -33.906357, 151.263763, 'restaurant'),
+(7, 'Single Origin Roasters', '60-64 Reservoir Street, Surry Hills, NSW', -33.881123, 151.209656, 'restaurant'),
+(8, 'Red Lantern', '60 Riley Street, Darlinghurst, NSW', -33.874737, 151.215530, 'restaurant');
 
 -- --------------------------------------------------------
 
@@ -536,7 +766,12 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (21, 1, 'Administrativos', '/admin/administrativos', '_self', 'voyager-github', NULL, NULL, 15, '2017-12-23 01:37:56', '2017-12-23 01:37:56', NULL, NULL),
 (22, 1, 'Administradors', '/admin/administrador', '_self', 'voyager-trees', NULL, NULL, 16, '2017-12-23 01:44:41', '2017-12-23 01:44:41', NULL, NULL),
 (23, 1, 'Basculas', '/admin/bascula', '_self', 'voyager-campfire', NULL, NULL, 17, '2017-12-23 02:03:40', '2017-12-23 02:03:40', NULL, NULL),
-(25, 1, 'Bateas', '/admin/bateas', '_self', NULL, NULL, NULL, 19, '2017-12-23 02:27:27', '2017-12-23 02:27:27', NULL, NULL);
+(25, 1, 'Bateas', '/admin/bateas', '_self', NULL, NULL, NULL, 18, '2017-12-23 02:27:27', '2017-12-28 00:34:39', NULL, NULL),
+(26, 1, 'Climas', '/admin/clima', '_self', 'voyager-lighthouse', NULL, NULL, 19, '2017-12-28 01:42:05', '2017-12-28 01:42:05', NULL, NULL),
+(27, 1, 'Conexions', '/admin/conexion', '_self', 'voyager-watch', NULL, NULL, 20, '2017-12-28 01:57:55', '2017-12-28 01:57:55', NULL, NULL),
+(28, 1, 'Encargadovehiculos', '/admin/encargadovehiculo', '_self', NULL, NULL, NULL, 21, '2017-12-28 02:07:50', '2017-12-28 02:07:50', NULL, NULL),
+(29, 1, 'Generadortransportista', '/admin/generadortransportista', '_self', 'voyager-bag', NULL, NULL, 22, '2017-12-28 02:18:25', '2017-12-28 02:18:25', NULL, NULL),
+(31, 1, 'Viajes', '/admin/viajes', '_self', 'voyager-dot-2', NULL, NULL, 24, '2017-12-28 02:40:38', '2017-12-28 02:40:38', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -720,7 +955,37 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (91, 'read_bateas', 'bateas', '2017-12-23 02:27:26', '2017-12-23 02:27:26', NULL),
 (92, 'edit_bateas', 'bateas', '2017-12-23 02:27:26', '2017-12-23 02:27:26', NULL),
 (93, 'add_bateas', 'bateas', '2017-12-23 02:27:26', '2017-12-23 02:27:26', NULL),
-(94, 'delete_bateas', 'bateas', '2017-12-23 02:27:26', '2017-12-23 02:27:26', NULL);
+(94, 'delete_bateas', 'bateas', '2017-12-23 02:27:26', '2017-12-23 02:27:26', NULL),
+(95, 'browse_clima', 'clima', '2017-12-28 01:42:05', '2017-12-28 01:42:05', NULL),
+(96, 'read_clima', 'clima', '2017-12-28 01:42:05', '2017-12-28 01:42:05', NULL),
+(97, 'edit_clima', 'clima', '2017-12-28 01:42:05', '2017-12-28 01:42:05', NULL),
+(98, 'add_clima', 'clima', '2017-12-28 01:42:05', '2017-12-28 01:42:05', NULL),
+(99, 'delete_clima', 'clima', '2017-12-28 01:42:05', '2017-12-28 01:42:05', NULL),
+(100, 'browse_conexion', 'conexion', '2017-12-28 01:57:55', '2017-12-28 01:57:55', NULL),
+(101, 'read_conexion', 'conexion', '2017-12-28 01:57:55', '2017-12-28 01:57:55', NULL),
+(102, 'edit_conexion', 'conexion', '2017-12-28 01:57:55', '2017-12-28 01:57:55', NULL),
+(103, 'add_conexion', 'conexion', '2017-12-28 01:57:55', '2017-12-28 01:57:55', NULL),
+(104, 'delete_conexion', 'conexion', '2017-12-28 01:57:55', '2017-12-28 01:57:55', NULL),
+(105, 'browse_encargadovehiculo', 'encargadovehiculo', '2017-12-28 02:07:50', '2017-12-28 02:07:50', NULL),
+(106, 'read_encargadovehiculo', 'encargadovehiculo', '2017-12-28 02:07:50', '2017-12-28 02:07:50', NULL),
+(107, 'edit_encargadovehiculo', 'encargadovehiculo', '2017-12-28 02:07:50', '2017-12-28 02:07:50', NULL),
+(108, 'add_encargadovehiculo', 'encargadovehiculo', '2017-12-28 02:07:50', '2017-12-28 02:07:50', NULL),
+(109, 'delete_encargadovehiculo', 'encargadovehiculo', '2017-12-28 02:07:50', '2017-12-28 02:07:50', NULL),
+(110, 'browse_generadortransportista', 'generadortransportista', '2017-12-28 02:18:25', '2017-12-28 02:18:25', NULL),
+(111, 'read_generadortransportista', 'generadortransportista', '2017-12-28 02:18:25', '2017-12-28 02:18:25', NULL),
+(112, 'edit_generadortransportista', 'generadortransportista', '2017-12-28 02:18:25', '2017-12-28 02:18:25', NULL),
+(113, 'add_generadortransportista', 'generadortransportista', '2017-12-28 02:18:25', '2017-12-28 02:18:25', NULL),
+(114, 'delete_generadortransportista', 'generadortransportista', '2017-12-28 02:18:25', '2017-12-28 02:18:25', NULL),
+(115, 'browse_viaje', 'viaje', '2017-12-28 02:33:44', '2017-12-28 02:33:44', NULL),
+(116, 'read_viaje', 'viaje', '2017-12-28 02:33:44', '2017-12-28 02:33:44', NULL),
+(117, 'edit_viaje', 'viaje', '2017-12-28 02:33:44', '2017-12-28 02:33:44', NULL),
+(118, 'add_viaje', 'viaje', '2017-12-28 02:33:44', '2017-12-28 02:33:44', NULL),
+(119, 'delete_viaje', 'viaje', '2017-12-28 02:33:44', '2017-12-28 02:33:44', NULL),
+(120, 'browse_viajes', 'viajes', '2017-12-28 02:40:38', '2017-12-28 02:40:38', NULL),
+(121, 'read_viajes', 'viajes', '2017-12-28 02:40:38', '2017-12-28 02:40:38', NULL),
+(122, 'edit_viajes', 'viajes', '2017-12-28 02:40:38', '2017-12-28 02:40:38', NULL),
+(123, 'add_viajes', 'viajes', '2017-12-28 02:40:38', '2017-12-28 02:40:38', NULL),
+(124, 'delete_viajes', 'viajes', '2017-12-28 02:40:38', '2017-12-28 02:40:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -841,7 +1106,37 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (91, 1),
 (92, 1),
 (93, 1),
-(94, 1);
+(94, 1),
+(95, 1),
+(96, 1),
+(97, 1),
+(98, 1),
+(99, 1),
+(100, 1),
+(101, 1),
+(102, 1),
+(103, 1),
+(104, 1),
+(105, 1),
+(106, 1),
+(107, 1),
+(108, 1),
+(109, 1),
+(110, 1),
+(111, 1),
+(112, 1),
+(113, 1),
+(114, 1),
+(115, 1),
+(116, 1),
+(117, 1),
+(118, 1),
+(119, 1),
+(120, 1),
+(121, 1),
+(122, 1),
+(123, 1),
+(124, 1);
 
 -- --------------------------------------------------------
 
@@ -987,7 +1282,9 @@ CREATE TABLE `transportista` (
 --
 
 INSERT INTO `transportista` (`id`, `razon_social`, `tipo_dni`, `dni`, `cuit`, `domicilio`, `numero_domicilio`, `localidad`, `codigo_postal`, `email`, `telefono_fijo`, `telefono_celular`, `telefono_celular_alt`, `latitud`, `longuitud`, `observaciones`, `habilitacion`, `id_usuario`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Transportes rapidos', 1, 54656322, '12121212121', 'fsdfsdfsdf', '123vev', 'Rivadavia', 231, 'diegochecarelli@hotmail.com', '221124', '4234234', '234234234', '234234234', '234234234', 'efeeferf', 1, 1, '2017-12-23 02:52:09', '2017-12-23 02:52:09', NULL);
+(2, 'Transportes rapidos', 1, 54656322, '12121212121', 'fsdfsdfsdf', '123vev', 'Rivadavia', 231, 'diegochecarelli@hotmail.com', '221124', '4234234', '234234234', '234234234', '234234234', 'efeeferf', 1, 1, '2017-12-23 02:52:09', '2017-12-23 02:52:09', NULL),
+(3, 'Ecocon', 1, 12123321, '23121233211', 'Calle Mendoza y San Luis', '123', 'Capital', 5400, 'ecccon@hotmail.com', '23123123', '123123213', '213123312', NULL, NULL, NULL, 1, 1, '2017-12-28 00:15:07', '2017-12-28 00:15:07', NULL),
+(4, 'dasdasd', 1, 22333111, '22223331111', 'asdasdasd', '12313', 'Capital', 2323, 'diegochecarelli@hotmail.com', '1231233', '123123123', '123123123', NULL, NULL, NULL, 1, 1, '2017-12-28 00:38:08', '2017-12-28 00:38:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -1014,6 +1311,30 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'administrador', 'your@email.com', 'users/default.png', '$2y$10$fYluiTfAVkZilB8vjyYXSOH5i6B/Zdo4DeCr5XaSgGfIDFh/2QvEa', 'mnTyGJK734KlLgGuwwahy6PkKErjg4e41eRVizJBlpGqWaozBcD3mD7cwiwO', '2017-12-16 00:49:12', '2017-12-16 00:49:13'),
 (2, 3, 'diego', 'diegochecarelli@hotmail.com', 'users/December2017/OpLIv9XYL55pPdBfP3Cs.png', '$2y$10$IE0LS03hVYzmB.C0J3jDJOrIuK.81igWSjM.h/ZfnbMPaMwj.1NqW', NULL, '2017-12-16 01:34:09', '2017-12-16 01:34:09');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `viajes`
+--
+
+CREATE TABLE `viajes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_orden` int(11) NOT NULL,
+  `inicio` datetime DEFAULT NULL,
+  `fin` datetime DEFAULT NULL,
+  `estado` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lugar` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `salida` datetime DEFAULT NULL,
+  `llegada` datetime DEFAULT NULL,
+  `recorrido` time DEFAULT NULL,
+  `destino` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `icono` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `observaciones` text COLLATE utf8_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Índices para tablas volcadas
@@ -1060,9 +1381,21 @@ ALTER TABLE `chofers`
   ADD KEY `chofer_id_transportista_index` (`id_transportista`);
 
 --
+-- Indices de la tabla `climas`
+--
+ALTER TABLE `climas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `compost`
 --
 ALTER TABLE `compost`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `conexions`
+--
+ALTER TABLE `conexions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1081,9 +1414,33 @@ ALTER TABLE `data_types`
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
 
 --
+-- Indices de la tabla `encargadovehiculos`
+--
+ALTER TABLE `encargadovehiculos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `event_models`
+--
+ALTER TABLE `event_models`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `generadors`
 --
 ALTER TABLE `generadors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `generadortransportista`
+--
+ALTER TABLE `generadortransportista`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `markers`
+--
+ALTER TABLE `markers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1190,6 +1547,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indices de la tabla `viajes`
+--
+ALTER TABLE `viajes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -1212,7 +1575,7 @@ ALTER TABLE `basculas`
 -- AUTO_INCREMENT de la tabla `bateas`
 --
 ALTER TABLE `bateas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `categories`
 --
@@ -1224,25 +1587,55 @@ ALTER TABLE `categories`
 ALTER TABLE `chofers`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT de la tabla `climas`
+--
+ALTER TABLE `climas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `compost`
 --
 ALTER TABLE `compost`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `conexions`
+--
+ALTER TABLE `conexions`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 --
 -- AUTO_INCREMENT de la tabla `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT de la tabla `encargadovehiculos`
+--
+ALTER TABLE `encargadovehiculos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `event_models`
+--
+ALTER TABLE `event_models`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `generadors`
 --
 ALTER TABLE `generadors`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `generadortransportista`
+--
+ALTER TABLE `generadortransportista`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `markers`
+--
+ALTER TABLE `markers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `menus`
 --
@@ -1252,7 +1645,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `migrations`
 --
@@ -1267,7 +1660,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT de la tabla `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 --
 -- AUTO_INCREMENT de la tabla `permission_groups`
 --
@@ -1302,12 +1695,17 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT de la tabla `transportista`
 --
 ALTER TABLE `transportista`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `viajes`
+--
+ALTER TABLE `viajes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
