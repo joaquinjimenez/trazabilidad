@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-01-2018 a las 22:09:16
+-- Tiempo de generación: 05-01-2018 a las 01:03:14
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -688,14 +688,14 @@ CREATE TABLE `markers` (
 --
 
 INSERT INTO `markers` (`id`, `name`, `address`, `lat`, `lng`, `type`) VALUES
-(1, 'Love.Fish', '580 Darling Street, Rozelle, NSW', -33.861034, 151.171936, 'restaurant'),
-(2, 'Young Henrys', '76 Wilford Street, Newtown, NSW', -33.898113, 151.174469, 'bar'),
-(3, 'Hunter Gatherer', 'Greenwood Plaza, 36 Blue St, North Sydney NSW', -33.840282, 151.207474, 'bar'),
-(4, 'The Potting Shed', '7A, 2 Huntley Street, Alexandria, NSW', -33.910751, 151.194168, 'bar'),
-(5, 'Nomad', '16 Foster Street, Surry Hills, NSW', -33.879917, 151.210449, 'bar'),
-(6, 'Three Blue Ducks', '43 Macpherson Street, Bronte, NSW', -33.906357, 151.263763, 'restaurant'),
-(7, 'Single Origin Roasters', '60-64 Reservoir Street, Surry Hills, NSW', -33.881123, 151.209656, 'restaurant'),
-(8, 'Red Lantern', '60 Riley Street, Darlinghurst, NSW', -33.874737, 151.215530, 'restaurant');
+(1, 'Putos', '580 Darling Street, Rozelle, NSW', -31.540262, -68.538963, 'restaurant'),
+(2, 'Young Henrys', '76 Wilford Street, Newtown, NSW', -31.547579, -68.536095, 'bar'),
+(3, 'Diego999', 'Greenwood Plaza, 36 Blue St, North Sydney NSW', -31.544037, -68.524910, 'bar'),
+(4, 'The Potting Shed', '7A, 2 Huntley Street, Alexandria, NSW', -31.538475, -68.519691, 'bar'),
+(5, 'Nomad', '16 Foster Street, Surry Hills, NSW', -31.537189, -68.509529, 'bar'),
+(6, 'Three Blue Ducks', '43 Macpherson Street, Bronte, NSW', -31.525545, -68.507347, 'restaurant'),
+(7, 'Single Origin Roasters', '60-64 Reservoir Street, Surry Hills, NSW', -31.523022, -68.512077, 'restaurant'),
+(8, 'Red Lantern', '60 Riley Street, Darlinghurst, NSW', -31.524433, -68.522232, 'restaurant');
 
 -- --------------------------------------------------------
 
@@ -1190,6 +1190,16 @@ CREATE TABLE `posts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `posts`
+--
+
+INSERT INTO `posts` (`id`, `author_id`, `category_id`, `title`, `seo_title`, `excerpt`, `body`, `image`, `slug`, `meta_description`, `meta_keywords`, `status`, `featured`, `created_at`, `updated_at`) VALUES
+(5, 1, 3, 'Mi super post', NULL, 'este post es fruta', '<p>En este contenido copado cuando no se que mierda escribir para eso mas a tirar fruta.</p>\r\n<p>&nbsp;</p>\r\n<p>&lt;hr&gt;</p>\r\n<p>&lt;/div&gt;</p>\r\n<p>&lt;div class=\"col-lg-8 mx-auto\"&gt;</p>\r\n<p>&lt;p class=\"text-faded mb-5\"&gt;Son todos putos better websites using the Bootstrap CSS framework! Just&lt;/p&gt;</p>\r\n<p>@foreach ($posts as $post)</p>\r\n<p>&lt;p&gt;</p>\r\n<p>{{$post-&gt;title}}</p>\r\n<p>&lt;/p&gt;</p>\r\n<p>@endforeach</p>\r\n<p>&lt;plass=\"text-faded mb-5\"&gt;&lt;/p</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&acute;p}p&acute;}</p>', 'posts/December2017/WhatsApp Image 2017-09-13 at 12.17.42 PM.jpeg', 'mi-super-post', NULL, NULL, 'PUBLISHED', 0, '2017-12-04 21:29:52', '2017-12-04 21:29:52'),
+(6, 3, 3, 'ultimo post', NULL, 'mundo en blanco y negro', '<p>ue se yo estoy re loko , con una footo del mundo en blanco y negrto para poder ocupar algo de espacio</p>', 'posts/December2017/mundo.jpg', 'ultimo-post', NULL, NULL, 'DRAFT', 1, '2017-12-04 21:35:20', '2017-12-22 20:05:28'),
+(7, 3, 3, 'Bajo el dolar', 'Dolar', 'Se aplicarán a padres y al club responsable y comenzarán a regir desde enero de 2018. Las más peligrosas son las motos de agua.', '<p><span style=\"color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">Hasta diciembre de 2017 s&oacute;lo ser&aacute;n advertencias, pero a partir de enero de 2018, Seguridad N&aacute;utica, dependiente de la Secretar&iacute;a de Deportes de la Provincia, comenzar&aacute; a aplicar multas que parten desde los $15.000 cuando encuentren a menores manejando embarcaciones. La multa se aplicar&aacute; tanto a los padres del menor como al club desde donde sali&oacute;.</span></p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0cm 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px; text-align: center;\"><em>Con los diques llenos, los deportes n&aacute;uticos toman cada vez m&aacute;s relevancia en la provincia. Ullum llama con su espejo maravilloso, ubicado a 20 minutos de la Capital. Y con el crecimiento de embarcaciones de motor, tambi&eacute;n crecen los peligros. Por eso Seguridad N&aacute;utica tiene aprobada una nueva normativa que incluye grandes multas a los infractores.</em></p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0cm 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\"><span style=\"text-decoration: underline;\">\"El control ser&aacute; estricto con menores al frente de embarcaciones porque es el mayor problema que hoy tenemos en Ullum. Los pap&aacute;s le entregan al ni&ntilde;o chico o adolescente y los encontramos navegando solos, sin papeles\", dijo Miguel Jofr&eacute;, titular del &aacute;rea.</span></p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0cm 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\"><span style=\"color: #0000ff;\">Cont&oacute; que la semana pasada chocaron dos menores y de milagro no les pas&oacute; nada pero podr&iacute;a haber sido una tragedia. \"Nadie se hace responsable y encima los padres nos traen el problema a nosotros, cuando la responsabilidad es de ellos. Generalmente encontramos menores en motos de agua, cuya cantidad aument&oacute; much&iacute;simo en los &uacute;ltimos dos a&ntilde;os\", se&ntilde;al&oacute; el funcionario.</span></p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0cm 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">Seguridad N&aacute;utica se encuentra armando la carpeta con la nueva normativa para compartirla con Bomberos, que trabaja tambi&eacute;n en la zona.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0cm 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">\"Ahora estamos en el proceso de informaci&oacute;n, pero a partir del primer d&iacute;a del a&ntilde;o que viene empezamos a levantar infracciones, queremos evitar males mayores\", asegur&oacute; Jofr&eacute;.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0cm 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">&nbsp;</p>', 'posts/December2017/f999x666-436984_532049_0.jpg', 'bajo-el-dolar', 'Dolar', 'Dolar', 'PUBLISHED', 1, '2017-12-22 19:53:52', '2017-12-22 20:02:22'),
+(8, 1, NULL, 'Un perro asesino aterroriza a los vecinos de Villa Krause', NULL, 'el perro re mil loko de la rawson', '<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; position: relative; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">Un fuerte vid<span style=\"text-decoration: underline;\">eo se hizo viral en las &uacute;ltimas horas gracias a un vecino de Villa Krause muy preocupado por lo que define c</span>omo un \"perro asesino\".&nbsp;</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">El joven<span style=\"color: #008000;\">, identificado como Leonardo Pantano asegur&oacute; que su vecina \"no puede controlar al animal que se escap&oacute; varias veces y mat&oacute;</span> a otros animales\". Es m&aacute;s, seg&uacute;n asegura Pantano en su publicaci&oacute;n \"ella misma los usa para matar animales callejeros\".&nbsp;</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">&nbsp;</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\"><strong>En las fuertes im&aacute;genes que public&oacute; se ve como el Pitbull sostiene del cuello a un callejerito y no lo suelta hasta mat</strong>arlo.&nbsp;</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">Pantano relat&oacute; que ya realiz&oacute; la denuncia en la Comisar&iacute;a 6ta y en la Polic&iacute;a Ecol&oacute;gica pero que a&uacute;n esperaban respuestas.</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px;\">&nbsp;</p>\r\n<p style=\"box-sizing: border-box; margin: 0px 0px 0.6em; color: #414042; font-family: \'Open Sans\', sans-serif; font-size: 18px; text-align: center;\"><iframe title=\"Maluma - Felices los 4 (Official Video)\" src=\"https://www.youtube.com/embed/t_jHrUE5IOk?wmode=opaque&amp;theme=dark\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"\"></iframe></p>', 'posts/January2018/dVBgptxhWpZtQnelD6cy.jpg', 'un-perro-asesino-aterroriza-a-los-vecinos-de-villa-krause', 'perro loko', 'perro loko', 'PUBLISHED', 0, '2018-01-05 02:41:18', '2018-01-05 02:41:18');
+
 -- --------------------------------------------------------
 
 --
@@ -1675,7 +1685,7 @@ ALTER TABLE `personas`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
