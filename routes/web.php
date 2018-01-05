@@ -23,6 +23,31 @@ Route::get('/calendario', 'Calendario@index');
 Route::get('/gmaps', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
 
+Route::get('/cosas',  ['uses' => 'GmapsController@cosas']);
+
+
+
+
+Route::get('/traeme_xml', 'GmapsController@toXml');
+Route::post('/traeme_xml', 'GmapsController@toXml');
+
+
+
+
+
+Route::get('/', [
+	'uses' => 'IndexController@index',
+	'as' => 'index.index'
+	]);
+
+Route::get('/post/{post}', [
+		'uses' => 'IndexController@post',
+		'as' => 'index.post'
+]);
+
+
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
