@@ -23,6 +23,11 @@ Route::get('/calendario', 'Calendario@index');
 Route::get('/gmaps', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
 
+Route::get('/mapas_angular', [
+		'uses' => 'GmapsController@mapas_angular'
+]);
+
+
 Route::get('/cosas',  ['uses' => 'GmapsController@cosas']);
 
 

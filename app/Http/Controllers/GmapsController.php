@@ -19,6 +19,11 @@ class GmapsController extends Controller
         return view('gmaps', compact('map'));
     }
 
+    public function mapas_angular()
+    {
+        return view("mapas.pruebam");
+    }
+
 
 
 

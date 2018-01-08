@@ -20,7 +20,7 @@ return [
         'auto_increment'         => 'Auto Increment',
         'browse'                 => 'Browse',
         'builder'                => 'Builder',
-        'bulk_delete'            => 'Bulk Delete',
+        'bulk_delete'            => 'Borrar Seleccionados',
         'bulk_delete_confirm'    => 'Yes, Delete These',
         'bulk_delete_nothing'    => 'You haven\'t selected anything to delete',
         'cancel'                 => 'Cancel',

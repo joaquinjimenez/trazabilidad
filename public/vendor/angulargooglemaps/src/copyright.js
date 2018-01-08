@@ -1,0 +1,1 @@
+/*! angular-google-maps-native v{{version}} | {{date}} | DEMONTE Jean-Baptiste | jbdemonte@gmail.com | GPL v3 */
