@@ -69,6 +69,24 @@
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	  crossorigin="anonymous"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAvjusDE9iWml-wx5BHw5VIFLIQAwpOXco",
+    authDomain: "hola-mondo.firebaseapp.com",
+    databaseURL: "https://hola-mondo.firebaseio.com",
+    projectId: "hola-mondo",
+    storageBucket: "hola-mondo.appspot.com",
+    messagingSenderId: "380413539487"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
 </head>
 <body>
     <div class="container">
@@ -216,7 +234,7 @@
       * Reference to Firebase database.
       * @const
       */
-      var firebase = new Firebase('https://fire-map-tutorial.firebaseio.com/');
+      var firebase = new Firebase('https://hola-mondo.firebaseio.com/');
 
       /**
       * Data object to be written to Firebase.
@@ -488,10 +506,17 @@
 
       function doNothing() {}
 */
+    
     </script>
+    <!-- Andnado bien
     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNT2DlqSugISpL62Oxe-2J_u0Gqos4qho&libraries=places&callback=initMap">
+    </script> -->
+
+        <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNT2DlqSugISpL62Oxe-2J_u0Gqos4qho&libraries=visualization&callback=initMap">
     </script>
+
 </body>
 </html>
 
