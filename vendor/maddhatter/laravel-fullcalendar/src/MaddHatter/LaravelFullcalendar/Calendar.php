@@ -95,6 +95,8 @@ class Calendar
     {
         $options = $this->getOptionsJson();
 
+        //die(var_dump($options));
+
         return $this->view->make('fullcalendar::script', [
             'id' => $this->getId(),
             'options' => $options,
