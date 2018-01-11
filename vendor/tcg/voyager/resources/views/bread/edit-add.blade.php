@@ -24,7 +24,8 @@
                     <form role="form"
                             class="form-edit-add"
                             action="@if(isset($dataTypeContent->id)){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->id) }}@else{{ route('voyager.'.$dataType->slug.'.store') }}@endif"
-                            method="POST" enctype="multipart/form-data">
+                            method="POST" enctype="multipart/form-data"
+                            id="formulario">
                         <!-- PUT Method if we are editing -->
                         @if(isset($dataTypeContent->id))
                             {{ method_field("PUT") }}
@@ -79,7 +80,7 @@
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary save">{{ __('voyager.generic.save') }}</button>
+                            <button type="button" onclick="guardar();" class="btn btn-primary save">{{ __('voyager.generic.save') }}</button>
                         </div>
                     </form>
 
@@ -180,5 +181,72 @@
             });
             $('[data-toggle="tooltip"]').tooltip();
         });
+
+        function guardar() {
+            formulario = document.getElementById('formulario');
+
+            for (var i = 0; i < formulario.length; i++) {
+                if (formulario[i].name != "") {
+                    formulario[i].setCustomValidity('');
+
+                    if (!formulario[i].checkValidity()) {
+                        formulario[i].reportValidity();
+                        return;
+                    }
+                }
+            }
+
+            var tabla = '{{ $dataType->slug }}';
+
+            switch(tabla) {
+                case 'bascula':
+                    var cuit = document.getElementsByName('cuit')[0];
+                    if (!validaCuit(cuit.value)) {
+
+                        cuit.value = '';
+                        cuit.setCustomValidity('El CUIT no es correcto');
+
+                        // document.getElementById('cuit').setCustomValidity('El CUIT/L no es correcto');
+                        cuit.checkValidity();
+                        cuit.reportValidity();
+                        return false;
+
+                    }
+                    break;                
+                default:
+                    //code block
+            }
+            
+            formulario.submit();
+        }
+
+        function validaCuit(cuit) {
+
+            if(typeof(cuit) == 'undefined') {
+                return true;
+            }
+
+            cuit = cuit.toString().replace(/[-_]/g, "");
+
+            if (cuit == '') {
+                return false; //No estamos validando si el campo esta vacio, eso queda para el "required"
+            }
+
+            if(cuit.length != 11) {
+                return false;
+            }
+            else {
+                var mult = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
+                var total = 0;
+                for (var i = 0; i < mult.length; i++) {
+                    total += parseInt(cuit[i]) * mult[i];
+                }
+                var mod = total % 11;
+                var digito = mod == 0 ? 0 : mod == 1 ? 9 : 11 - mod;
+            }
+
+            return digito == parseInt(cuit[10]);
+        }
+
     </script>
 @stop
