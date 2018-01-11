@@ -29,6 +29,8 @@ Route::get('/mapas_angular', [
 
 
 Route::get('/cosas',  ['uses' => 'GmapsController@cosas']);
+Route::get('/angularfire',  ['uses' => 'GmapsController@angularfire']);
+Route::get('/cosastodo',  ['as ' => 'todo', 'uses' => 'GmapsController@todossssss']);
 
 
 

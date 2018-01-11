@@ -278,4 +278,17 @@ return $xmlStr;
     	return view("mapas.cosas");
     }
 
+    
+     public function angularfire()
+    {
+        return view("mapas.angularfire");
+    }
+
+      public function todossssss()
+    {
+        return view("mapas.todo");
+    }
+
+
+
 }
