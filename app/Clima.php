@@ -3,8 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Contracts\UserResolver;
 
-class Clima extends Model
+class Clima extends Model implements Auditable
 {
     //
+    //use Notifiable;
+    use \OwenIt\Auditing\Auditable;
+
+    public static function resolveId()
+    {
+        return Auth::check() ? Auth::user()->getAuthIdentifier() : null;
+    }
 }

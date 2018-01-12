@@ -179,6 +179,8 @@ return [
 //        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
 
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+
+        OwenIt\Auditing\AuditingServiceProvider::class,
         // Collective\Html\HtmlServiceProvider::class,
 
     ],

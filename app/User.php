@@ -4,11 +4,18 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Contracts\UserResolver;
 
-class User extends \TCG\Voyager\Models\User
+class User extends \TCG\Voyager\Models\User implements Auditable
 {
     use Notifiable;
+    use \OwenIt\Auditing\Auditable;
 
+    public static function resolveUserId()
+    {
+        return Auth::check() ? Auth::user()->getAuthIdentifier() : null;
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -26,4 +33,10 @@ class User extends \TCG\Voyager\Models\User
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /*public static function resolveUserId()
+    {
+        return Auth::check() ? Auth::user()->id : null;
+    }*/
 }
