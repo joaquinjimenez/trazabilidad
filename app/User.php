@@ -35,6 +35,19 @@ class User extends \TCG\Voyager\Models\User implements Auditable
         'password', 'remember_token',
     ];
 
+     public function friendsOfMine()
+    {
+        return $this->belongstoMany('App\User', 'friends', 'user_id', 'friend_id' );
+    }
+    public function friendsOf()
+    {
+        return $this->belongstoMany('App\User', 'friends', 'friend_id', 'user_id' );
+    }
+    public function friends(){
+        return $this->friendsOfMine->merge($this->friendsOf);
+    }
+    
+
 
     /*public static function resolveUserId()
     {

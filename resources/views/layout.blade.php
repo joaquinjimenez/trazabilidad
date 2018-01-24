@@ -5,17 +5,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+		<meta name="userId" content="{{ Auth::check() ? Auth::user()->id : 'null'}}">
 		<title>Blogcito</title>
 		<!-- Bootstrap core CSS -->
 		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Custom fonts for this template -->
-		<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- 	<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-		<!-- Plugin CSS -->
-		<link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<!-- Plugin CSS ->
+		<link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet"> -->
 		<!-- Custom styles for this template -->
-		<link href="/css/creative.min.css" rel="stylesheet">
+<!-- 		<link href="/css/creative.min.css" rel="stylesheet"> -->
+
 
 
   <!--css-->
@@ -38,7 +41,7 @@
 		<script src="{{asset('js/angular.min.js')}}" type="text/javascript"></script>
 		  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
     <script src="http://rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>
-    <!-- <script type='text/javascript' src='script.js'></script><!--script--> 
+    <!-- <script type='text/javascript' src='script.js'></script><!--script--> -->
     
 		<script type="text/javascript">
 			   angular.module('appMaps', ['uiGmapgoogle-maps'])
@@ -76,6 +79,8 @@
 				</div>
 			</div>
 		</nav>
+		@yield('content')
+
 		<header class="masthead text-center text-white d-flex">
 			<div class="container my-auto">
 				@yield('body')
@@ -268,6 +273,8 @@
 		<script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
 		<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<!-- Custom scripts for this template -->
-		<script src="/js/creative.min.js"></script>
+<!-- 		<script src="/js/creative.min.js"></script> -->
+		 <script src="/js/app.js"></script>
+
 	</body>
 </html>

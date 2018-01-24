@@ -290,5 +290,10 @@ return $xmlStr;
     }
 
 
+  public function geofire()
+    {
+        return view("mapas.geofire");
+    }
+
 
 }

@@ -29,7 +29,8 @@ Route::get('/mapas_angular', [
 
 
 Route::get('/cosas',  ['uses' => 'GmapsController@cosas']);
-Route::get('/angularfire',  ['uses' => 'GmapsController@angularfire']);
+Route::get('/angularfire',  ['uses' => 'GmapsController@angularfire']); // es el broadcast
+Route::get('/geofire',  ['uses' => 'GmapsController@geofire']); // es el mapa firebase } angularfire
 Route::get('/cosastodo',  ['as ' => 'todo', 'uses' => 'GmapsController@todossssss']);
 
 
@@ -58,3 +59,21 @@ Route::get('/post/{post}', [
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+
+/*Rutas necesarias para el chat*/
+
+
+Route::get('/friends', 'FriendController@index');//->middleware('auth');
+Route::get('/chat', 'ChatController@index')->middleware('auth')->name('chat.index');
+Route::get('/chat/{id}', 'ChatController@show')->middleware('auth')->name('chat.show');
+
+Route::post('/chat/getChat/{id}', 'ChatController@getChat')->middleware('auth');
+Route::post('/chat/sendChat', 'ChatController@sendChat')->middleware('auth');
+
+Route::get('/pruebavio', 'ChatController@prueba_envio');
+
+
+
+
+

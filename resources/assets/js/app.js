@@ -15,8 +15,29 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('chat', require('./components/Chat.vue'));
+Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data:{
+    	chats: ''
+    },
+    created() {
+    	const userId = $('meta[name="userId"]').attr('content') ;
+    	const friendId = $('meta[name="friendId"]').attr('content') ;
+    	if(friendId != undefined)
+    	{
+    	//	alert("friend id:"+friendId);
+    		axios.post('/chat/getChat/'+ friendId).then((response) =>{
+    			//alert('valores, Uusario:'+userId+'   - Friend:'+friendId+'   - Rta:'+response.data);
+    			this.chats = response.data;
+    		});
+    		Echo.private('Chat.'+friendId+'.' +userId)
+    		.listen('BroadcastChat', (e)=>{
+    			document.getElementById('ChatAudio').play();
+    			this.chats.push(e.chat);
+    		});
+    	}
+    }
 });
