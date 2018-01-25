@@ -9,12 +9,12 @@
         box-shadow: inset 0 0 20px 0 grey;
         margin-bottom: 20px;
         border: 1px solid grey;
-        max-height: 600px;
+        max-height: 900px;
         overflow-x: auto;
         overflow-y : scroll;
     }
     .chat .chat-right, .chat .chat-left {
-        max-width: 70%;
+        max-width: 100%;
         box-shadow: 0 0 8px 0px grey;
         padding: 8px;
         margin: 4px;
@@ -36,16 +36,17 @@
     <div class="panel-block">
         <div class="chat" v-if="chats.lenght != 0">
             <div v-for="chat in chats">
-                <div class="chat-right" v-if="chat.user_id == userid">
-                    {{chat.chat}}
-                    <br>
-                </div>
-                <div class="chat-left" v-else>
-                    {{chat.chat}}
-                    <br>
+                <div class="row">
+                    <div class="chat-right" v-if="chat.user_id == userid">
+                        {{chat.chat}}
+                        <br>
+                    </div>
+                    <div class="chat-left" v-else>
+                        {{chat.chat}}
+                        <br>
+                    </div>
                 </div>
             </div>
-            
         </div>
         <div v-else class="no-message" >
             There are not messages

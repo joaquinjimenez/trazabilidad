@@ -1,0 +1,148 @@
+cosas que instale al crear el chat:
+
+
+
+
+ambos comandos, parado en la carpea del proyecto
+
+
+1
+
+
+composer require pusher/pusher-php-server "~3.0"
+
+
+
+
+
+
+
+
+2
+npm install --save laravel-echo pusher-js
+
+
+
+3
+ actualizar los valores del archivo .env
+ la parte de pusher
+
+
+ 4
+ actualizar los providers
+
+
+
+ 5
+ en la carpeta config/broadcast
+agregar una linea donde dice opciones 
+agreggar cluster en esa linea
+
+
+ 6
+Ir al archivo bootstrap.js que esta en resource/assets/js/bootstrap.js
+
+
+7
+cambiar los valores de broadcast en el archivo .env
+
+
+
+8
+copiar los archivos chat y friends y ponerlos en la carpeta migration
+
+correr los migrate
+
+
+
+
+9
+copiar los archivos de factory y correrlos
+
+php artisan tinker
+
+factory("App\User", 30)->create()
+
+
+
+
+
+
+10 copiar el model friend
+
+
+
+
+
+11
+agregar funciones al model User
+
+
+12 actualizar a model Friend
+
+
+13 
+actualizar las rutas de web
+
+
+
+
+14 
+actualizar firend controller
+
+
+
+15 copiar toda la carpeta view/friend
+
+
+16 
+crar una lista de friend
+usar la factoria como en el punto 9
+
+
+
+
+17 coppiar el model chat
+
+
+18
+copiar chat controller
+
+
+
+19
+factory de chAT
+
+
+20 npm run watch
+
+
+21 me tiraba error el comando anterior
+pero corri npm install, se demor mucho instlando cosas nuevas y despues anduvo el paso 20
+
+
+22
+copie el contenido de la caprtepa
+resource/assets/js/components
+
+
+
+23 actualize el codigo de resource/assets/js/app.js
+
+
+
+24
+creo el factory de chat
+
+
+25 me salio un error diciendo que no tengo algo en la carpeta
+app/events/fruta
+asiq copie toda la carpeta de events q esta en app
+
+26 no se arreglo el 24 y 25, copie los registros directamente en la base de datos
+
+
+27 cambiar contraeña de algun otro usuario y probar
+
+
+28 agregue una nueva route en channels.php
