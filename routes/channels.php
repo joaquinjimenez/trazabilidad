@@ -20,3 +20,7 @@ Broadcast::channel('Chat.{user_id}.{friend_id}', function ($user, $user_id, $fri
 });
 
 
+Broadcast::channel('Online', function ($user) {
+    return $user;
+});
+

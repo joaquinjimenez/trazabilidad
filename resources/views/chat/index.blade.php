@@ -3,11 +3,9 @@
 	<div class="row">
 		<h1>List of friends</h1>
 		@forelse($friends as $friend)
-			<a href="{{route('chat.show', $friend->id)}}" class="btn btn-light btn-xl js-scroll-trigger" >
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">{{$friend->name}}</h2>
-					<hr class="my-4">
-				</div>
+			<a href="{{ route('chat.show', $friend->id) }}" class="panel-block">
+				<div>{{ $friend->name }}</div>
+				<onlineuser v-bind:friend="{{ $friend }}" v-bind:onlineusers="onlineUsers"></onlineuser>
 			</a>
 		@empty 
 		<div class="row">
