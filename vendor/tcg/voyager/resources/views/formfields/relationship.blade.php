@@ -11,7 +11,8 @@
 				@php 
 					$relationshipData = (isset($data)) ? $data : $dataTypeContent;
 					$model = app($options->model);
-					$query = $model::getRelationship($relationshipData->{$options->column});
+					$query = $model::find($relationshipData->{$options->column});
+					
             	@endphp
 
             	@if(isset($query))

@@ -11,11 +11,16 @@
 |
 */
 
+
+use Illuminate\Support\Facades\URL;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/personas/saludo', 'PersonaController@saludo');
+
+Route::get('/generador_dash', 'GeneradorController@index');
 
 Route::get('/calendario', 'Calendario@index');
 
@@ -57,7 +62,17 @@ Route::get('/post/{post}', [
 
 
 Route::group(['prefix' => 'admin'], function () {
+	$url  = URL::current();
+	$url_nueva = substr($url, strlen($url) - strpos(strrev($url), '/')) ;
+	//dd($url,$url_nueva);
+
+
     Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'generador'], function () {
+//    echo "estoy efefwefewef//n generadores";
 });
 
 
