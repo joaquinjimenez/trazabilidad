@@ -40,7 +40,6 @@ Route::get('/cosastodo',  ['as ' => 'todo', 'uses' => 'GmapsController@todosssss
 
 
 
-
 Route::get('/traeme_xml', 'GmapsController@toXml');
 Route::post('/traeme_xml', 'GmapsController@toXml');
 
@@ -88,6 +87,12 @@ Route::post('/chat/sendChat', 'ChatController@sendChat')->middleware('auth');
 
 Route::get('/pruebavio', 'ChatController@prueba_envio');
 
+
+Route::prefix('api')->group(function() {
+    Route::resource('tasks', 'TaskController');
+});
+
+Route::get('/todo_bien', 'TaskController@ver');
 
 
 
