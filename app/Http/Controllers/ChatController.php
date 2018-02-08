@@ -59,6 +59,7 @@ class ChatController extends Controller
 	}
 
 	public function sendChat(Request $request) {
+		dd($request->friend_id);
         Chat::create([
             'user_id' => $request->user_id,
             'friend_id' => $request->friend_id,
@@ -67,15 +68,15 @@ class ChatController extends Controller
         
         return [];
     }
-	// public function prueba_envio()
- //    {
- //        Chat::create([
- //         'user_id'=>  '4',
- //         'friend_id'=> '12',
- //         'chat'=> 'la quiero ir a poner',
- //         ]);
- //        echo "lo cree bien";
- //    }
+	 public function prueba_envio()
+     {
+         Chat::create([
+        	'user_id'=>  '4',
+        	'friend_id'=> '12',
+        	'chat'=> 'hdffhdfhdfhder',
+        ]);
+        echo "lo cree bien";
+    }
 
 
 	/**

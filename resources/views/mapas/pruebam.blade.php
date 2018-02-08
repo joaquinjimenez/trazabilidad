@@ -78,6 +78,12 @@
 		</gm-map>
 			<div ng-if="coords.latitude !== false">Dragend on [@{{coords.latitude}}, @{{coords.longitude}}]</div>
 		<h1>Las cordenas @{{saludos}} </h1>  -->
+
+		<h1>{{$valor}}</h1>
+		@if($valor == 4)
+			<h1> Hola sr generador</h1>
+		@else <h1> Hola sr pelotudo</h1>
+		@endif
 		<div class="panel">
 			<div class="item">
 				<button ng-click="destination=[-31.53547846498398, -68.48063698913575]">address 1</button>

@@ -11,11 +11,16 @@
 |
 */
 
+
+use Illuminate\Support\Facades\URL;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/personas/saludo', 'PersonaController@saludo');
+
+Route::get('/generador_dash', 'GeneradorController@index');
 
 Route::get('/calendario', 'Calendario@index');
 
@@ -56,8 +61,30 @@ Route::get('/post/{post}', [
 
 
 
+/*
+Route::group(['domain' => 'teach.styde.dev'], function () {
+    Route::get('tickets', function () {
+        //
+    });
+});
+*/
+
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+	$url  = URL::current();
+	$url_nueva = substr($url, strlen($url) - strpos(strrev($url), '/')) ;
+	//dd($url_nueva);
+	if($url_nueva == "dash-generador")
+		Route::get('dash-generador',  [
+		'uses' => 'GmapsController@mapas_angular',
+		'middleware' => 'auth'
+		]);
+	else
+   		Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'generador'], function () {
+//    echo "estoy efefwefewef//n generadores";
 });
 
 
@@ -74,6 +101,12 @@ Route::post('/chat/sendChat', 'ChatController@sendChat')->middleware('auth');
 Route::get('/pruebavio', 'ChatController@prueba_envio');
 
 
+Route::get('/ver_lista', 'TaskController@inicio');
+
+Route::prefix('api')->group(function() {
+    Route::resource('tasks', 'TaskController');
+});
 
 
 
+Route::get('/todo_bien', 'TaskController@ver');

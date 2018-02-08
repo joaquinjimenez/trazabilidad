@@ -4,6 +4,14 @@
     <div class="page-content">
         @include('voyager::alerts')
         @include('voyager::dimmers')
+        @if (Auth::user()->role_id == 4 ) 
+        <!--significa que soy generador-->
+            <h1>HOla generador</h1>
+        @elseif(Auth::user()->role_id == 1 ) 
+        <!--significa que soy generador-->
+            @include('voyager::dashboard_administrador');
+        @else <h1> hola pelotudo</h1>
+        @endif
         <div class="analytics-container">
             <?php $google_analytics_client_id = Voyager::setting("admin.google_analytics_client_id"); ?>
             @if (isset($google_analytics_client_id) && !empty($google_analytics_client_id))
@@ -31,6 +39,7 @@
                     </ul>
                     <div id="view-selector-container"></div>
                 </header>
+
 
                 <ul class="FlexGrid FlexGrid--halves">
                     <li class="FlexGrid-item">

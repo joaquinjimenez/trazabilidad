@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
 {
     public static $files = array (
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
@@ -15,7 +16,6 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
     );
 
@@ -142,8 +142,8 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -454,6 +454,7 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
         'App\\Compost' => __DIR__ . '/../..' . '/app/Compost.php',
         'App\\Conexion' => __DIR__ . '/../..' . '/app/Conexion.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\DashGenerador' => __DIR__ . '/../..' . '/app/DashGenerador.php',
         'App\\Encargadovehiculo' => __DIR__ . '/../..' . '/app/Encargadovehiculo.php',
         'App\\EventModel' => __DIR__ . '/../..' . '/app/EventModel.php',
         'App\\Events\\BroadcastChat' => __DIR__ . '/../..' . '/app/Events/BroadcastChat.php',
@@ -470,6 +471,7 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
         'App\\Http\\Controllers\\ChatModelController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatModelController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FriendController' => __DIR__ . '/../..' . '/app/Http/Controllers/FriendController.php',
+        'App\\Http\\Controllers\\GeneradorController' => __DIR__ . '/../..' . '/app/Http/Controllers/GeneradorController.php',
         'App\\Http\\Controllers\\GmapsController' => __DIR__ . '/../..' . '/app/Http/Controllers/GmapsController.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\MakersController' => __DIR__ . '/../..' . '/app/Http/Controllers/MakersController.php',
@@ -488,6 +490,10 @@ class ComposerStaticInit2980dcdafe4e23733a8e8bce038376d7
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\SolicitudContenedor' => __DIR__ . '/../..' . '/app/SolicitudContenedor.php',
+        'App\\SolicitudOT' => __DIR__ . '/../..' . '/app/SolicitudOT.php',
+        'App\\Task' => __DIR__ . '/../..' . '/app/Task.php',
+        'App\\TipoResiduo' => __DIR__ . '/../..' . '/app/TipoResiduo.php',
         'App\\Transportistum' => __DIR__ . '/../..' . '/app/Transportistum.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Viaje' => __DIR__ . '/../..' . '/app/Viaje.php',

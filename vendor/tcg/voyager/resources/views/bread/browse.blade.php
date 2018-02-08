@@ -75,6 +75,10 @@
                                         </th>
                                         @endforeach
                                         <th class="actions">{{ __('voyager.generic.actions') }}</th>
+                                       
+                                        @if (Request::url() === 'http://localhost:8000/admin/chofer' ) 
+                                            <th>columnita</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -183,6 +187,9 @@
                                                 </a>
                                             @endcan
                                         </td>
+                                        @if (Request::url() === 'http://localhost:8000/admin/chofer' ) 
+                                            <td><a href="http://localhost:8000/admin/users" class="btn btn-primary"> <i class="voyager-search"></i> Imprmir</a></td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>

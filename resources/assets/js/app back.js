@@ -14,12 +14,14 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-
+//Vue.component('task-list', require('./components/TaskList.vue'));
 Vue.component('chat', require('./components/Chat.vue'));
 Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 Vue.component('onlineuser', require('./components/OnlineUser.vue'));
-Vue.component('task-list', require('./components/TaskList.vue'));
+
+/*const app_task = new Vue({
+    el: '#app_task'
+});*/
 
 const app = new Vue({
     el: '#app',

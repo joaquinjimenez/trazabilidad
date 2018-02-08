@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use App\Markers;
+use Auth;
 //use GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade;
 
 class GmapsController extends Controller
@@ -21,7 +22,10 @@ class GmapsController extends Controller
 
     public function mapas_angular()
     {
-        return view("mapas.pruebam");
+        $valor = Auth::user()->role_id;
+        //dd($valor);
+        //return view("mapas.pruebam", ["valor" => $valor]);
+        return view("mapas.probando_voyager", ["valor" => $valor]);
     }
 
 
