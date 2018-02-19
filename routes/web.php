@@ -40,7 +40,6 @@ Route::get('/cosastodo',  ['as ' => 'todo', 'uses' => 'GmapsController@todosssss
 
 
 
-
 Route::get('/traeme_xml', 'GmapsController@toXml');
 Route::post('/traeme_xml', 'GmapsController@toXml');
 
@@ -83,9 +82,9 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-Route::group(['prefix' => 'generador'], function () {
-//    echo "estoy efefwefewef//n generadores";
-});
+//Route::group(['prefix' => 'generador'], function () {
+ //   echo "estoy efefwefewef//n generadores";
+//});
 
 
 /*Rutas necesarias para el chat*/
