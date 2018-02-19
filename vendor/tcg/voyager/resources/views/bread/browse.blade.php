@@ -188,7 +188,7 @@
                                             @endcan
                                         </td>
                                         @if (Request::url() === 'http://localhost:8000/admin/chofer' ) 
-                                            <td><a href="http://localhost:8000/admin/users" class="btn btn-primary"> <i class="voyager-search"></i> Imprmir</a></td>
+                                            <td><a href="http://localhost:8000/admin/users" class="btn btn-primary"> <i class="voyager-down-circled"></i> Imprmir</a></td>
                                         @endif
                                     </tr>
                                     @endforeach
