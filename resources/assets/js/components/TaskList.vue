@@ -1,4 +1,4 @@
-<template>
+<template v-if="conditionB">
     <div class='row'>
         <h1>My Tasks</h1>
         <h4>New Task</h4>
@@ -24,6 +24,7 @@
     export default {
         data() {
             return {
+                conditionB :  true,
                 list: [],
                 task: {
                     id: '',
