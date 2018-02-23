@@ -219,17 +219,62 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		]
 	}]
 });
+
+
+var chart_dos = new CanvasJS.Chart("chartContainer_dos", {
+	animationEnabled: true,
+	title:{
+		text: "QOS - Survey Result"
+	},
+	axisY:{
+		title: "Response values",
+		interval: 10
+	},
+	toolTip: {
+		shared: true
+	},
+	data: [{
+			type: "bar",
+			name: "Avg. Score",
+			toolTipContent: "<b>{label}</b> <br> <span style='color:#4F81BC'>{name}</span>: {y}",
+			dataPoints: [
+				{ y: 94, label: "Order Accuracy" },
+				{ y: 74, label: "Packaging" },
+				{ y: 80, label: "Quantity" },
+				{ y: 88, label: "Quality" },
+				{ y: 76, label: "Delivery" }
+			]
+		},
+		{
+			type: "error",
+			name: "Variability Range",
+			toolTipContent: "<span style='color:#C0504E'>{name}</span>: {y[0]} - {y[1]}",
+			dataPoints: [
+				{ y: [92, 98], label: "Order Accuracy" },
+				{ y: [70, 78], label: "Packaging" },
+				{ y: [78, 85], label: "Quantity" },
+				{ y: [85, 92], label: "Quality" },
+				{ y: [72, 78], label: "Delivery" }
+			]
+	}]
+});
+
 chart.render();
+chart_dos.render();
+
 
 }
 </script>
 
+
 <div class="clearfix container-fluid row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-12">
 		<h1>Mi primer grafico</h1>
 		<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 	</div>
-	<div class="col-xs-12 col-sm-6 col-md-6">
+	<div class="col-xs-12 col-sm-12 col-md-12">
 		<h1>Mi segundo grafico</h1>
+		<div id="chartContainer_dos" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
 	</div>
 </div>
+<!--<div class="row"><h1>{{menu('admin')}}</h1></div>-->

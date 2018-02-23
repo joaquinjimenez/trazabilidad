@@ -7,6 +7,7 @@
 		@if (Auth::user()->role_id == 4 ) 
 		<!--significa que soy generador-->
 			<h1>HOla generador</h1>
+			@include('voyager::generador.dashboard_generador');
 		@elseif(Auth::user()->role_id == 1 ) 
 		<!--significa que soy generador-->
 			@include('voyager::dashboard_administrador');

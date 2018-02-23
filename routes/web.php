@@ -77,7 +77,14 @@ Route::group(['prefix' => 'admin'], function () {
 		'uses' => 'GmapsController@mapas_angular',
 		'middleware' => 'auth'
 		]);
+	/*elseif //http://localhost:8000/admin/
+		($url_nueva == "error-usuarios")
+		Route::get('dash-generador',  [
+		'uses' => 'GmapsController@mapas_angular',
+		'middleware' => 'auth'
+		]);*/
 	else
+		
    		Voyager::routes();
 });
 
