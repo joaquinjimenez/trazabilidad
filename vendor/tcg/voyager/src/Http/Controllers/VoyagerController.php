@@ -9,11 +9,51 @@ use Intervention\Image\Constraint;
 use Intervention\Image\Facades\Image;
 use TCG\Voyager\Facades\Voyager;
 
+//mios
+//namespace App\Http\Controllers;
+
+//use Illuminate\Http\Request;
+use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+
+use App\EventModel;
+use App\Markers;
+
 class VoyagerController extends Controller
 {
     public function index()
     {
-        return Voyager::view('voyager::index');
+
+        //mis cosas
+        $marcadores = Markers::all();
+
+
+
+
+
+        $events = [];
+
+        $events[] = Calendar::event('Event One', //event title
+            false, //full day event?
+            '2017-12-11', //start time (you can also use Carbon instead of DateTime)
+            '2017-12-12', //end time (you can also use Carbon instead of DateTime)
+            0, //optionally, you can specify an event ID
+            ['url' => 'http://full-calendar.io',]
+        );
+
+        $eloquentEvents = EventModel::all(); //EventModel implements MaddHatter\LaravelFullcalendar\Event
+        
+        $calendar = Calendar::addEvents($eloquentEvents) //add an array with addEvents
+        //->addEvent($eloquentEvent, ['color' => '#800', ]) //set custom color fo this event
+        ->setOptions(['firstDay' => 1])
+        ->setCallbacks([ //set fullcalendar callback options (will not be JSON encoded)
+            'eventClick' => 'function(event) {
+                 showModal(event);
+             }'
+        ]); //set fullcalendar options
+
+
+
+        return Voyager::view('voyager::index',compact('calendar','map'));
     }
 
     public function logout()

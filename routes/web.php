@@ -111,6 +111,8 @@ Route::get('/ver_lista', 'TaskController@inicio');
 
 Route::prefix('api')->group(function() {
     Route::resource('tasks', 'TaskController');
+     //Route::post('guardar_tarea', 'TaskController@store');
+     //Route::post('eliminar_tarea', 'TaskController@destroy');
 });
 
 

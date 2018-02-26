@@ -8,10 +8,16 @@
 		<!--significa que soy generador-->
 			<h1>HOla generador</h1>
 			@include('voyager::generador.dashboard_generador');
+
 		@elseif(Auth::user()->role_id == 1 ) 
 		<!--significa que soy generador-->
 			@include('voyager::dashboard_administrador');
 			@include('voyager::graficos_dashboard_administrador');
+<!-- poner el q no tiene error 	@include('voyager::compartido.modal_crear_error');-->
+			@include('voyager::compartido.broadcast');
+			@include('voyager::compartido.task');
+			@include('voyager::compartido.calendario');
+			@include('voyager::compartido.mapas');
 		@else <h1> hola pelotudo</h1>
 		@endif
 		<div class="analytics-container">

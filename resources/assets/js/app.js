@@ -20,6 +20,9 @@ Vue.component('chat', require('./components/Chat.vue'));
 Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 Vue.component('onlineuser', require('./components/OnlineUser.vue'));
 Vue.component('task-list', require('./components/TaskList.vue'));
+Vue.component('modal-error', require('./components/Modal_Crear_Error.vue'));
+
+
 const app = new Vue({
     el: '#app',
     data:{
