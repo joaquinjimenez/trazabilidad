@@ -27,11 +27,7 @@ class VoyagerController extends Controller
         $marcadores = Markers::all();
 
 
-
-
-
         $events = [];
-
         $events[] = Calendar::event('Event One', //event title
             false, //full day event?
             '2017-12-11', //start time (you can also use Carbon instead of DateTime)
@@ -39,9 +35,7 @@ class VoyagerController extends Controller
             0, //optionally, you can specify an event ID
             ['url' => 'http://full-calendar.io',]
         );
-
         $eloquentEvents = EventModel::all(); //EventModel implements MaddHatter\LaravelFullcalendar\Event
-        
         $calendar = Calendar::addEvents($eloquentEvents) //add an array with addEvents
         //->addEvent($eloquentEvent, ['color' => '#800', ]) //set custom color fo this event
         ->setOptions(['firstDay' => 1])

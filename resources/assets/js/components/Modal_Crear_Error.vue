@@ -67,59 +67,60 @@
 
 <template v-if="conditionA">
 	<div class="row">
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	      <div class="modal-dialog" role="document">
-	        <div class="modal-content">
-	          <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	            <h4 class="modal-title" id="myModalLabel">Nuevo Error</h4>
-	          </div>
-	          <div class="modal-body">
-	            <textarea v-model="body_error" maxlength="256" class="form-control" placeholder="Ingrese su inconveniente, duda o consejo">
-	            	
-	            </textarea>
-	          </div>
-	          <div class="modal-footer">
-	            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="voyager-x"></i>  Cerrar</button>
-	            <button type="button" class="btn btn-primary"><i class="voyager-paper-plane"></i>  Enviar </button>
-	          </div>
-	        </div>
-	      </div>
-	    </div>    
-
-	  <!--   <h1 v-if="showModal == true" >HOLLAAA</h1> -->
-		
-	 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="voyager-bug"></i>Mandar Error</button>
+		<div   class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Nuevo Error</h4>
+					</div>
+					<div class="modal-body">
+						<textarea v-model="body_error" maxlength="256" class="form-control" placeholder="Ingrese su inconveniente, duda o consejo">
+						</textarea>
+				</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="cerrar_modal_error" data-dismiss="modal"><i class="voyager-x"></i>  Cerrar</button>
+						<button type="button" class="btn btn-primary" @click="createError()"><i class="voyager-paper-plane"></i>  Enviar </button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<h1 v-if="showModal == true" >HOLLAAA</h1> -->
+		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="voyager-bug"></i>Mandar Error</button>
 		<!-- <button id="show-modal" @click="showModal? showModal = false : showModal =true" class="btn btn-danger" ><i class="voyager-bug"></i> Show Modal</button> -->
 		
 	</div>
 </template>
 <script>
 	import axios  from 'axios';
-    //import toastr from 'toastr';
+	import toastr from 'toastr';
  //    import moment from 'moment'
 
 	export default {
 		 data() {
 			 return {
-			  showModal: false,
+			  showModal: true,
 			  body_error: '',
 			  conditionA : true
 			};
 		},
 		methods: {
-            createError: function() {
-                var url = 'guardar_error';
-                axios.post(url, {
-                    description: this.body_error
-                }).then(response => {
-                    this.body_error = '';
-                    alert(response.data);
-                   // toastr.success('Nueva idea registrada');
-                }).catch(error => {
-                   // toastr.error('Error');
-                });
-            }
+			createError: function() {
+				var url = 'guardar_error';
+				axios.post(url, {
+					description: this.body_error
+				}).then(response => {
+					this.body_error = '';
+					toastr.success('Error enviado correctaemente. Muchas Graicas');
+					//showModal: false;
+					//$('#myModal').modal('toggle');
+				}).catch(error => {
+					toastr.error('Error');
+				});
+			},
+			 greet: function (event) {
+		      alert('Hello ' + this.name + '!')
+		    }
 	}
 }
 </script>

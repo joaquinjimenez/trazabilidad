@@ -12,14 +12,12 @@
 		@elseif(Auth::user()->role_id == 1 ) 
 		<!--significa que soy generador-->
 			@include('voyager::dashboard_administrador');
+			@include('voyager::compartido.cargar_error');
+			@include('voyager::compartido.task');
 			@include('voyager::graficos_dashboard_administrador');
-<!-- poner el q no tiene error 	@include('voyager::compartido.modal_crear_error');-->
 			@include('voyager::compartido.broadcast');
 
-			@include('voyager::compartido.cargar_error');
 
-			@include('voyager::compartido.task');
-			@include('voyager::compartido.calendario');
 			@include('voyager::compartido.mapas');
 		@else <h1> hola pelotudo</h1>
 		@endif
