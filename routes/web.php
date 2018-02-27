@@ -24,6 +24,8 @@ Route::get('/generador_dash', 'GeneradorController@index');
 
 Route::get('/calendario', 'Calendario@index');
 
+Route::get('/timeline', 'Timeline@index');
+Route::get('/timeline/list/{tipo}', 'Timeline@list');
 
 Route::get('/gmaps', ['as ' => 'gmaps', 'uses' => 'GmapsController@index']);
 
