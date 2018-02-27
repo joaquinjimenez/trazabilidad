@@ -15,6 +15,9 @@
 			@include('voyager::graficos_dashboard_administrador');
 <!-- poner el q no tiene error 	@include('voyager::compartido.modal_crear_error');-->
 			@include('voyager::compartido.broadcast');
+
+			@include('voyager::compartido.cargar_error');
+
 			@include('voyager::compartido.task');
 			@include('voyager::compartido.calendario');
 			@include('voyager::compartido.mapas');

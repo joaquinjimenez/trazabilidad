@@ -118,3 +118,5 @@ Route::prefix('api')->group(function() {
 
 
 Route::get('/todo_bien', 'TaskController@ver');
+
+Route::post('/guardar_error', 'ErrorUsuario@store');

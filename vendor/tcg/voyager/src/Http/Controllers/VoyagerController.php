@@ -50,7 +50,7 @@ class VoyagerController extends Controller
                  showModal(event);
              }'
         ]); //set fullcalendar options
-
+//dd($calendar);
 
 
         return Voyager::view('voyager::index',compact('calendar','map'));

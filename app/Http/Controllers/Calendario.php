@@ -22,8 +22,8 @@ class Calendario extends Controller
 
         $events[] = Calendar::event('Event One', //event title
             false, //full day event?
-            '2017-12-11', //start time (you can also use Carbon instead of DateTime)
-            '2017-12-12', //end time (you can also use Carbon instead of DateTime)
+            '2018-03-11', //start time (you can also use Carbon instead of DateTime)
+            '2018-03-28', //end time (you can also use Carbon instead of DateTime)
             0, //optionally, you can specify an event ID
             ['url' => 'http://full-calendar.io',]
         );
