@@ -16,15 +16,9 @@ class Timeline extends Controller
     public function index() {
         //
 
-        /*
-        traer elementos de la tabla audits_table (usar el eloquent)
-        usar paginacion. buscar como es q paginaba eloquent, si es q lo hacia
-        hacer funcion q por ajax traiga mas elementos, es decir, otra pagina
-
-        hacer vista simple para dar salida a estos elememntos, usar el angular-timeline
-
-        lo mejor seria hacer q esta funcion solo cargue la vista, y una funcion q por ajax devuelva paginas de resultados. cuando cargo la vista, automaticamente se trae la primer pagina por ajax. de ahi en mas cada vez q escrolee va trayendo el resto de las paginas por ajax. buscar si hay algun tutorial que enseñe a hacer todo esto
-        */
+        //https://github.com/rpocklin/angular-timeline
+        //http://rp.js.org/angular-timeline/docs/#/api/angular-timeline.directive:timeline
+        //http://rp.js.org/angular-timeline/example/index.html
 
         return view('timeline.timeline');
     }
