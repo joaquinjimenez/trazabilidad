@@ -183,6 +183,9 @@ return [
         OwenIt\Auditing\AuditingServiceProvider::class,
         // Collective\Html\HtmlServiceProvider::class,
 
+        //dom pdf
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -234,6 +237,8 @@ return [
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         // 'Form' => Collective\Html\FormFacade,
         // 'Html' => Collective\Html\HtmlFacade,
+        //dom pdf
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
     ],

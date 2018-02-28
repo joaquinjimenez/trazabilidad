@@ -63,6 +63,12 @@
 													<?php continue; ?>
 												@endif
 											@endif
+
+											<?php 
+											$id_fila = $row->field; 
+											if($row->display_name =='id')
+												$id_fila = $row->field; 
+											?>
 											<th>
 												@if ($isServerSide)
 													<a href="{{ $row->sortByUrl() }}">
@@ -103,6 +109,7 @@
 												@endif
 											@endif
 											<td>
+											
 												<?php $options = json_decode($row->details); ?>
 												@if($row->type == 'image')
 													<img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif" style="width:100px">
@@ -171,6 +178,7 @@
 															Download
 														</a>
 													@endif
+													
 												@elseif($row->type == 'rich_text_box')
 													@include('voyager::multilingual.input-hidden-bread-browse')
 													<div class="readmore">{{ mb_strlen( strip_tags($data->{$row->field}, '<b><i><u>') ) > 200 ? mb_substr(strip_tags($data->{$row->field}, '<b><i><u>'), 0, 200) . ' ...' : strip_tags($data->{$row->field}, '<b><i><u>') }}</div>
@@ -200,7 +208,7 @@
 											@endcan
 										</td>
 										@if (Request::url() === 'http://localhost:8000/admin/chofer' ) 
-											<td><a href="http://localhost:8000/admin/users" class="btn btn-primary"> <i class="voyager-down-circled"></i> Imprimir</a></td>
+											<td><a href="http://localhost:8000/probando_pdf/<?php echo $id_fila;?>" class="btn btn-primary"> <i class="voyager-down-circled"></i> Imprimir</a></td>
 										@endif
 									</tr>
 									@endforeach

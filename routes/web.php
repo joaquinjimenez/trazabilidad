@@ -120,3 +120,9 @@ Route::prefix('api')->group(function() {
 Route::get('/todo_bien', 'TaskController@ver');
 
 Route::post('/guardar_error', 'ErrorUsuarioController@store')->middleware('auth');
+
+Route::get('descargar_tareas', 'TaskController@pdf')->name('products.pdf');
+
+
+Route::get('probando_pdf/{id_a_buscar?}', 'TaskController@ot_pdf')->name('ot.pdf');
+//Route::get('probando_pdf}', 'TaskController@ot_pdf')->name('ot.pdf');
