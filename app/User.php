@@ -8,13 +8,12 @@ use OwenIt\Auditing\Contracts\Auditable;
 use OwenIt\Auditing\Contracts\UserResolver;
 use Illuminate\Support\Facades\Auth;
 
-class User extends \TCG\Voyager\Models\User implements Auditable
+class User extends \TCG\Voyager\Models\User implements Auditable, UserResolver
 {
     use Notifiable;
     use \OwenIt\Auditing\Auditable;
 
-    public static function resolveUserId()
-    {
+    public static function resolveId() {
         return Auth::check() ? Auth::user()->getAuthIdentifier() : null;
     }
     /**

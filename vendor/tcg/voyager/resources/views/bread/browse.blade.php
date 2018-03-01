@@ -65,7 +65,7 @@
 											@endif
 
 											<?php 
-											$id_fila = $row->field; 
+											$id_fila = -99; 
 											if($row->display_name =='id')
 												$id_fila = $row->field; 
 											?>
